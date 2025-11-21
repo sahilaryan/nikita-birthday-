@@ -78,6 +78,22 @@
     .footer{padding:48px 18px 80px;text-align:center}
     .footer .big{font-family:Georgia, serif;font-size:40px;color:var(--slate-900);font-weight:400;margin-bottom:18px}
     .footer p{max-width:820px;margin:0 auto;color:var(--muted);line-height:1.6}
+    /* birthday date styling added */
+    .birthday-date {
+      margin-top:18px;
+      font-size:15px;
+      color:var(--slate-900);
+      font-weight:600;
+      letter-spacing:0.6px;
+    }
+    .birthday-date span {
+      display:block;
+      margin-top:6px;
+      font-size:18px;
+      color:var(--rose);
+      font-family: Georgia, serif;
+      font-weight:500;
+    }
 
     /* small utilities */
     .center{display:flex;align-items:center;justify-content:center}
@@ -164,10 +180,28 @@
       <div class="big">You Are Truly Magnificent</div>
       <p>This day celebrates not only your birth, but the extraordinary spirit you bring to the world. May your year ahead be filled with moments of pure elegance, boundless joy, and the love you so graciously give to others.</p>
       <p style="margin-top:18px;font-size:13px;color:var(--muted);letter-spacing:1px">WITH INFINITE ADMIRATION AND WARMTH</p>
+
+      <!-- Birthday date: will be filled by JavaScript. Change the BIRTHDAY variable in the script below -->
+      <div class="birthday-date" aria-label="Birthday date">
+        Date of Birth:
+        <span id="birthdayDate">DD Month YYYY</span>
+      </div>
     </footer>
   </div>
 
   <script>
+    // Set the birthday here (replace with the actual date you want to display)
+    // You can use any human-readable format like 'June 21, 1998' or '21 June 1998'
+    const BIRTHDAY = 'June 21, 1998'; // <<< Replace this string with Nikita's birthday
+
+    // Format/display the birthday in the footer
+    (function displayBirthday() {
+      const el = document.getElementById('birthdayDate');
+      if (!el) return;
+      // If you want more advanced formatting, adjust here.
+      el.textContent = BIRTHDAY;
+    })();
+
     // Data (from your React component)
     const galleryItems = [
       { type: 'image', src: 'https://github.com/sahilaryan/nikita-birthday-/blob/main/1000383838.jpg', alt: 'Nicki' },
